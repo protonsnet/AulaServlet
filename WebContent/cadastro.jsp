@@ -18,7 +18,7 @@
 						<p> <input type="text" name="login" placeholder="Usuario..."/></p>
 						<p> <input type="password" name="senha" placeholder="Senha..."/></p>
 					</div>
-					<p><input type="summit" class="btn btn-default" id="bcadastrar" value="Cadastrar">
+					<p><input type="submit" class="btn btn-default" id="bcadastrar" value="Cadastrar">
 					   <input type="reset" class="btn btn-default" id="blimpar" value="Limpar"></p>
 				</fieldset>
 			</form>

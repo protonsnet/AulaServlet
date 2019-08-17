@@ -4,6 +4,16 @@
   <artifactId>AulaServlet</artifactId>
   <version>1</version>
   <packaging>war</packaging>
+  
+  <dependencies>
+  	<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+	<dependency>
+	    <groupId>jstl</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+  </dependencies>
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -22,5 +32,7 @@
         </configuration>
       </plugin>
     </plugins>
+    
   </build>
+  
 </project>

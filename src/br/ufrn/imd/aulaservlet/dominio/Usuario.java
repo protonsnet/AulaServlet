@@ -5,6 +5,7 @@ public class Usuario {
 	private String senha;
 	private String nome;
 	
+	
 	public String getSenha() {
 		return senha;
 	}
