@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ufrn.imd.aulaservlet.dominio.Cadastro;
 import br.ufrn.imd.aulaservlet.dominio.Usuario;
 
 /**
@@ -22,24 +23,21 @@ public class CadastrarServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req,
 			HttpServletResponse resp)
 	throws ServletException, IOException {
-		List<Usuario> usuarios = new ArrayList<Usuario>();
+		Cadastro cadUsuario = (Cadastro) getServletContext().getAttribute("cadastro");
+		
 		Usuario u = new Usuario();
 		
-		String login = req.getParameter("login");
-		String senha = req.getParameter("senha");
-		String nome = req.getParameter("nome");
+		u.setLogin(req.getParameter("login"));
+		u.setSenha(req.getParameter("senha"));
+		u.setNome(req.getParameter("nome"));
 		
-		u.setLogin(login);
-		u.setSenha(senha);
-		u.setNome(nome);
-		
-		usuarios.add(u);
+		cadUsuario.addUsuario(u);
 		
 		//req.setAttribute("usuarios", usuarios);
 		//resp.sendRedirect("/AulaServlet"+"/sucesso.jsp");
-		RequestDispatcher view = req.getRequestDispatcher("sucesso.jsp");
+		req.setAttribute("lista", cadUsuario.listarUsuarios());
+		RequestDispatcher view = req.getRequestDispatcher("lista.jsp");
 	    view.forward(req, resp);
-		
 
 	}
 

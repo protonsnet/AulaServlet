@@ -10,7 +10,7 @@
 	<p>Usuario <b><%=((Usuario)	session.getAttribute("usuario")).getNome() %></b>
 	</p>
 	<form>
-		<p><input type="submit" value="logout"></p>
+		<p><input type="submit" value="logout" onClick=window.location='login.jsp'></p>
 	</form>
 
 </body>

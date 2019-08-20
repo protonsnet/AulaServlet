@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.ufrn.imd.aulaservlet.dominio.Usuario;
 
@@ -21,13 +22,15 @@ public class SegurancaFilter implements Filter{
 	throws IOException, ServletException{
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-		
+		HttpSession ses = req.getSession();
+	
 		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
 		
-		if(usuario == null)
+		if(usuario == null || ses.getAttribute("usuario")==null )
 			res.sendRedirect("/AulaServlet/login.jsp");
-		else
+		else {
 			chain.doFilter(request, response);
+		}
 	}
 	
 	public void init(FilterConfig filterConfig) throws ServletException{
